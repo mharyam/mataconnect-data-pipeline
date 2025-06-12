@@ -1,23 +1,29 @@
+"""Embed community descriptions using Google Cloud Vertex AI."""
+
 from google.cloud import aiplatform
 from pymongo import MongoClient
 
+from ..config import (
+    GCP_PROJECT,
+    GCP_REGION,
+    MONGODB_URI,
+    MONGODB_DATABASE,
+    MONGODB_COLLECTION,
+    validate_config,
+)
 
-GCP_PROJECT = "your-gcp-project-id"
-GCP_REGION = "us-central1"  # or "europe-west4" etc.
+# Validate environment variables are set
+validate_config()
 
-MONGO_URI = "your-mongodb-connection-string"
-DATABASE_NAME = "mataconnect"
-COLLECTION_NAME = "communities"
-
-
+# Initialize Vertex AI
 aiplatform.init(project=GCP_PROJECT, location=GCP_REGION)
 model = aiplatform.TextEmbeddingModel.from_pretrained("textembedding-gecko")
 
+# Connect to MongoDB
+mongo_client = MongoClient(MONGODB_URI)
+collection = mongo_client[MONGODB_DATABASE][MONGODB_COLLECTION]
 
-mongo_client = MongoClient(MONGO_URI)
-collection = mongo_client[DATABASE_NAME][COLLECTION_NAME]
-
-
+# Find documents without embeddings
 query = {"$or": [{"embedding": {"$exists": False}}, {"embedding": []}]}
 for doc in collection.find(query):
     try:
@@ -43,3 +49,5 @@ for doc in collection.find(query):
 
     except Exception as e:
         print(f"❌ Error processing {doc.get('name', '[Unnamed]')}: {e}")
+
+print("✨ Embedding process completed")
