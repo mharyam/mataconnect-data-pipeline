@@ -1,0 +1,89 @@
+{
+  "name": "Women Who Code Lagos",
+  "platform": "Meetup",
+  "location": "Lagos, Nigeria",
+  "focus_areas": ["Coding", "Mentorship", "Professional Growth"],
+  "audience": ["Women in Tech"],
+  "link": "...",
+  "description": "A community helping women break into tech in Lagos."
+}
+
+
+Use Google Cloud Vertex AI Embeddings or PaLM to convert user queries into vectors.
+Use MongoDB Atlas Vector Search to find the closest-matching communities.
+Example queries:
+  “Tech groups for Black women in the UK”
+  “Support circles for moms going back to work”
+  “Communities for women founders in fintech”
+
+// Example MongoDB Atlas Vector Search query
+AI-Powered Recommendations
+Use NLP to tag, rank, and group communities based on similarity and relevance.
+Bonus: Build a lightweight RAG (retrieval-augmented generation) system that summarizes communities per user need.
+
+
+Frontend: React / Next.js / TailwindCSS
+Backend: Node.js / Python / Express
+Database: MongoDB Atlas + Vector Search
+AI/NLP: Google Cloud Vertex AI / PaLM / LangChain
+Search: MongoDB Vector Index (with text embeddings)
+Deployment: Google Cloud Run / Firebase Hosting
+Data Sourcing: Scrapy, RSS feeds, APIs from Eventbrite etc.
+
+
+👩🏽‍💻 How You’ll Use It in MataConnect
+Find or extract public data about women-centric communities, events, or organizations.
+E.g., Scrape Meetup, use Eventbrite API, or find CSVs on Kaggle or UN data.
+Ingest that dataset into MongoDB Atlas
+Generate embeddings of key content (descriptions, themes, etc.)
+Index with MongoDB vector search
+Build a user interface to query it semantically and explore insights
+
+
+
+📌 For Your Hackathon (MataConnect)
+To qualify:
+You could scrape or query publicly available women’s events (from Eventbrite, etc.)
+You could use an open Kaggle CSV about women in business or tech
+Or find a dataset of NGOs or support groups for women (e.g., from UN Women)
+
+
+1) Load Data into MongoDB ATLAS 
+2) Use full-text search to enable keyword lookups
+3) Use vector search to enable semantic, meaning-based matching
+4)Use Google Cloud’s Vertex AI Embedding API to:
+    Convert community descriptions into vector embeddings
+    Analyze descriptions for topics, focus areas, or categories (e.g., AI, wellness, finance)
+5) AI for Generation:
+    Let users type natural-language queries like:
+      “I’m a Black woman founder in the UK looking for mentorship and funding support.”
+6) Google Cloud Integration:
+    Use Google Cloud Run to deploy your backend
+    Use Vertex AI APIs for embeddings and summarization
+    Store and query your data from MongoDB Atlas, hosted in the cloud
+    Optional: use BigQuery if you want to analyze trends (e.g., “Where are women’s groups lacking globally?”)
+
+Build an AI-powered discovery tool to help women find the right communities from a public dataset using MongoDB + Google Cloud + Vector Search.
+
+
+
+Cluster: MataConnectCluster
+└── Database: mataconnect
+    └── Collection: communities
+        ├── Document 1
+        │   ├── name: "R-Ladies Nairobi"
+        │   ├── country: "Kenya"
+        │   └── tags: ["R", "Data Science"]
+        ├── Document 2
+        │   ├── name: "She Codes Australia"
+        │   ├── city: "Melbourne"
+        │   └── is_virtual: true
+        ...
+
+
+communities
+focus_areas
+community_focus_areas
+tags
+users
+community_submissions
