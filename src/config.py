@@ -18,6 +18,7 @@ MONGODB_COLLECTION = os.getenv("MONGODB_COLLECTION", "communities")
 # Google Cloud Configuration
 GCP_PROJECT = os.getenv("GCP_PROJECT")
 GCP_REGION = os.getenv("GCP_REGION", "us-central1")
+GCP_MODEL_NAME = os.getenv("GCP_MODEL_NAME", "textembedding-gecko@001")
 
 
 # Validate required environment variables

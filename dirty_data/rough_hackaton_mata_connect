@@ -40,7 +40,6 @@ Index with MongoDB vector search
 Build a user interface to query it semantically and explore insights
 
 
-
 📌 For Your Hackathon (MataConnect)
 To qualify:
 You could scrape or query publicly available women’s events (from Eventbrite, etc.)
@@ -48,8 +47,8 @@ You could use an open Kaggle CSV about women in business or tech
 Or find a dataset of NGOs or support groups for women (e.g., from UN Women)
 
 
-1) Load Data into MongoDB ATLAS 
-2) Use full-text search to enable keyword lookups
+1) Load Data into MongoDB ATLAS -[DONE]
+2) Use full-text search to enable keyword lookups 
 3) Use vector search to enable semantic, meaning-based matching
 4)Use Google Cloud’s Vertex AI Embedding API to:
     Convert community descriptions into vector embeddings
